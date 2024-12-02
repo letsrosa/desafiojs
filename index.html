@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício WEB</title>
+</head>
+<body>
+    <div class="container">
+        <div id="corpo">
+            <form action="" onsubmit="return false">
+                <h2 id="titulo">Registro</h2>
+                <div class="input-group">
+                    <input type="password" 
+                           name="pass" 
+                           id="pass" 
+                           placeholder="Digite sua senha">
+                    <button type="submit" 
+                            onclick="verificarSenha(document.querySelector('#pass').value)">
+                        Verificar
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div id="result">
+            <h2 id="resultado"></h2>
+        </div>
+    </div>
+
+    <script>
+        const verificarSenha = (senha) => {
+            const resultElement = document.querySelector('#resultado');
+            
+            if (senha === '123') {
+                resultElement.textContent = 'Você acertou a senha!';
+                resultElement.className = 'sucesso';
+            } else if (senha === '') {
+                resultElement.textContent = 'Tente adivinhar a senha!';
+                resultElement.className = 'aviso';
+            } else {
+                resultElement.textContent = 'Você errou! Tente novamente.';
+                resultElement.className = 'erro';
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #FFE6F2;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(219, 112, 147, 0.2);
+            width: 300px;
+        }
+
+        #titulo {
+            text-align: center;
+            color: #DB7093;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        input {
+            padding: 8px;
+            border: 1px solid #FFB6C1;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 8px;
+            background-color: #DB7093;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #C71585;
+        }
+
+        #resultado {
+            text-align: center;
+            margin-top: 15px;
+            padding: 10px;
+        }
+
+        .sucesso {
+            color: #9370DB;
+        }
+
+        .erro {
+            color: #FF69B4;
+        }
+
+        .aviso {
+            color: #DDA0DD;
+        }
+    </style>
+</body>
+</html>
